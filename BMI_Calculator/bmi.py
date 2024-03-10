@@ -90,9 +90,16 @@ class BMI_Calculator:
                 last_row = None
                 for row in reader:
                     last_row = row
-                if last_row:
+                if len(last_row) > 1:
                     return int(last_row[0])
+                else:
+                    return 1
         except FileNotFoundError:
+            field = ["Id", "Weight", "Height", "BMI"]
+            f1 = open('bmi_data.csv', 'w',newline='')
+            wr = csv.writer(f1)
+            wr.writerow(field)
+            f1.close()
             return 0
 
     def calculate_bmi(self):
