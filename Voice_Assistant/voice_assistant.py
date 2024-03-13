@@ -37,11 +37,11 @@ def listening():
         audio = r.listen(s)
         try:
             text = r.recognize_google(audio)
+            print(text)
         except:
             if (text == ""):
                 prg_say("I didn't catch it")
                 listening()
-        print(text)
 
 today_dt = datetime.datetime.now()
 prg_say("Good" + wishing() + " sir, I am your voice assistant")
@@ -95,6 +95,8 @@ Tell a joke""")
 
     prg_say("Let me know if you need more assistance")
     listening()
-    if ("no" or "nothing" or "thanks you" or "that's it") in text:
+    if ("no" or "nothing" or "thank you" or "that's it") in text:
         break
     prg_say("What can I do for you?")
+
+prg_say("Thank you sir, have a nice day")
