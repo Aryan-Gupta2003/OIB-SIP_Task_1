@@ -38,48 +38,24 @@ class BMI_Calculator:
         self.bmi_c = tk.Label(a, text="")
         self.bmi_c.grid(row=9, column=0)
 
-        self.bmi_c = tk.Label(a, text="BMI", font=('Helvetica', 10, 'bold'), borderwidth=1, relief="solid", background="yellow", width=15)
-        self.bmi_c.grid(row=10, column=0)
-        self.bmi_c = tk.Label(a, text="Classification", font=('Helvetica', 10, 'bold'), borderwidth=1, relief="solid", background="yellow", width=15)
-        self.bmi_c.grid(row=10, column=1)
-        self.bmi_c = tk.Label(a, text="Health Risk", font=('Helvetica', 10, 'bold'), borderwidth=1, relief="solid", background="yellow", width=15)
-        self.bmi_c.grid(row=10, column=2)
-        self.bmi_c = tk.Label(a, text="Under 18.5", borderwidth=1, relief="solid", width=17)
-        self.bmi_c.grid(row=11, column=0)
-        self.bmi_c = tk.Label(a, text="Underweight", borderwidth=1, relief="solid", width=17)
-        self.bmi_c.grid(row=11, column=1)
-        self.bmi_c = tk.Label(a, text="Minimal", borderwidth=1, relief="solid", width=17)
-        self.bmi_c.grid(row=11, column=2)
-        self.bmi_c = tk.Label(a, text="18.5 - 24.9", borderwidth=1, relief="solid", width=17)
-        self.bmi_c.grid(row=12, column=0)
-        self.bmi_c = tk.Label(a, text="Normal Weight", borderwidth=1, relief="solid", width=17)
-        self.bmi_c.grid(row=12, column=1)
-        self.bmi_c = tk.Label(a, text="Minimal", borderwidth=1, relief="solid", width=17)
-        self.bmi_c.grid(row=12, column=2)
-        self.bmi_c = tk.Label(a, text="25 - 29.9", borderwidth=1, relief="solid", width=17)
-        self.bmi_c.grid(row=13, column=0)
-        self.bmi_c = tk.Label(a, text="Overweight", borderwidth=1, relief="solid", width=17)
-        self.bmi_c.grid(row=13, column=1)
-        self.bmi_c = tk.Label(a, text="Increased", borderwidth=1, relief="solid", width=17)
-        self.bmi_c.grid(row=13, column=2)
-        self.bmi_c = tk.Label(a, text="30 - 34.9", borderwidth=1, relief="solid", width=17)
-        self.bmi_c.grid(row=14, column=0)
-        self.bmi_c = tk.Label(a, text="Obese", borderwidth=1, relief="solid", width=17)
-        self.bmi_c.grid(row=14, column=1)
-        self.bmi_c = tk.Label(a, text="High", borderwidth=1, relief="solid", width=17)
-        self.bmi_c.grid(row=14, column=2)
-        self.bmi_c = tk.Label(a, text="35 - 39.9", borderwidth=1, relief="solid", width=17)
-        self.bmi_c.grid(row=15, column=0)
-        self.bmi_c = tk.Label(a, text="Severely Obese", borderwidth=1, relief="solid", width=17)
-        self.bmi_c.grid(row=15, column=1)
-        self.bmi_c = tk.Label(a, text="Very High", borderwidth=1, relief="solid", width=17)
-        self.bmi_c.grid(row=15, column=2)
-        self.bmi_c = tk.Label(a, text="40 and aboveh", borderwidth=1, relief="solid", width=17)
-        self.bmi_c.grid(row=16, column=0)
-        self.bmi_c = tk.Label(a, text="Morbidly Obese", borderwidth=1, relief="solid", width=17)
-        self.bmi_c.grid(row=16, column=1)
-        self.bmi_c = tk.Label(a, text="Extremly High", borderwidth=1, relief="solid", width=17)
-        self.bmi_c.grid(row=16, column=2)
+        head_arr =["BMI", "Classification", "Health Risk"]
+        content_arr = [["Under 18.5", "Underweight", "Minimal"],
+                       ["18.5 - 24.9", "Normal Weight", "Minimal"],
+                       ["25 - 29.9", "Overweight", "Increased"],
+                       ["30 - 34.9", "Obese", "High"],
+                       ["35 - 39.9", "Severely Obese", "Very High"],
+                       ["40 and aboveh", "Morbidly Obese", "Extremly High"]]
+
+        for i in range (10,11):
+            for j in range (0,3):
+                self.bmi_c = tk.Label(a, text=head_arr[j], font=('Helvetica', 10, 'bold'), borderwidth=1, relief="solid", background="yellow", width=15)
+                self.bmi_c.grid(row=i, column=j)
+
+        for i in range (11,17):
+            for j in range (0,3):
+                self.bmi_c = tk.Label(a, text=content_arr[i-11][j], borderwidth=1, relief="solid", width=17)
+                self.bmi_c.grid(row=i, column=j)
+
 
         self.current_id = self.get_last_id() + 1
 
@@ -100,6 +76,8 @@ class BMI_Calculator:
             wr = csv.writer(f1)
             wr.writerow(field)
             f1.close()
+            return 0
+        except ValueError:
             return 0
 
     def calculate_bmi(self):
