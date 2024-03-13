@@ -19,8 +19,6 @@ class info():
         for paragraph in paragraphs[:1]:
             text += paragraph.text + "\n"
         ts.say(text)
-
-
     
     def keep_open_forever(self):
         input("Press Enter to close the browser...")

@@ -1,7 +1,7 @@
 import pyttsx3
 a = pyttsx3.init()
 def say(x):
-    a.setProperty('rate', 180)
+    a.setProperty('rate', 210)
     voices = a.getProperty('voices')
     a.setProperty('voice', voices[1].id)
     a.say(x)
