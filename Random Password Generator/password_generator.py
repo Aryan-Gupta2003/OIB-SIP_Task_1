@@ -74,7 +74,7 @@ class PasswordGeneratorApp:
         try:
             length = int(self.length_entry.get())
         except ValueError:
-            messagebox.showerror("Error", "Invalid Input")
+            messagebox.showerror("Error", "Invalid Password Length ")
             return
 
         if length <= 0:
@@ -85,7 +85,7 @@ class PasswordGeneratorApp:
         if self.special_var.get():
             try:
                 special_count = int(self.special_entry.get())
-                if special_count < 0:
+                if special_count < 1:
                     raise ValueError
             except ValueError:
                 messagebox.showerror("Error", "Invalid input for number of special characters.")
@@ -118,9 +118,6 @@ class PasswordGeneratorApp:
         if not (charset1 or (charset2 and special_count>0)):
             messagebox.showerror("Error", "Please select at least one character type.")
             return
-        # if not (charset1 and charset2 and special_count==0):
-        #     messagebox.showerror("Error", "Please select at least one character type.")
-        #     return
         
         p = ""
         p += ''.join(random.choice(charset1) for _ in range(length - special_count))

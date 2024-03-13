@@ -80,10 +80,12 @@ Tell a joke""")
         a.keep_open_forever()
         a.close()
     elif ("fact" or "facts") in text:
+        prg_say("Sure sir, ")
         fact = randfacts.get_fact()
         print(fact)
         prg_say("Do you know, " + fact)
     elif ("joke" or "jokes") in text:
+        prg_say("Sure sir, ")
         j = jokes.joke()
         print(j[0])
         prg_say(j[0])
