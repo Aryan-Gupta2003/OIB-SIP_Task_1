@@ -94,6 +94,7 @@ Tell a joke""")
     else:
         prg_say("I didn't understand, please tell me from the provided list")
         listening()
+        continue
 
     prg_say("Let me know if you need more assistance")
     listening()
