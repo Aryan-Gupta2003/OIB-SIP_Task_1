@@ -91,7 +91,9 @@ Tell a joke""")
         prg_say(j[0])
         print(j[1])
         prg_say(j[1])
-    
+    else:
+        prg_say("I didn't understand, please tell me from the provided list")
+        listening()
 
     prg_say("Let me know if you need more assistance")
     listening()
