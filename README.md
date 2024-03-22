@@ -2,4 +2,4 @@
 
 ### Python Programming Projects
 
-This repository is created for the soul purpose of Oasis Infobyte Task submissions.
+This repository is created for the soul purpose of Oasis Infobyte Task-1 submissions.
